@@ -5,7 +5,7 @@ require "ostruct"
 
 class BuildGitkSolarized
   TEMPLATE = <<~GITK_CONFIG
-    set want_ttk 0
+    set want_ttk                0
     set colors                  <%= colors %>
     set uicolor                 <%= uicolor %>
     set uifgcolor               <%= uifgcolor %>
@@ -148,7 +148,17 @@ class BuildGitkSolarized
       circleoutlinecolor: palette.base0,
       foundbgcolor: palette.yellow,
       currentsearchhitbgcolor: palette.orange,
-    }
+    }.tap do |config|
+      if mode == :light
+        config.update({
+          uicolor: palette.base02,
+          filesepbgcolor: palette.base01,
+        })
+      else
+        config.update({
+        })
+      end
+    end
   end
 end
 
