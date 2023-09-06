@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require "erb"
+require "ostruct"
 
 class BuildGitkSolarized
   TEMPLATE = <<~GITK_CONFIG
@@ -39,8 +40,34 @@ class BuildGitkSolarized
     set currentsearchhitbgcolor <%= currentsearchhitbgcolor %>
   GITK_CONFIG
 
+  SOLARIZED_PALETTE = {
+    dark: {
+      base02:  "#073642",
+      red:     "#dc322f",
+      green:   "#859900",
+      yellow:  "#b58900",
+      blue:    "#268bd2",
+      magenta: "#d33682",
+      cyan:    "#2aa198",
+      base2:   "#eee8d5",
+      base03:  "#002b36",
+      back:    "#002b36",
+      black:   "#002b36",
+      orange:  "#cb4b16",
+      base01:  "#586e75",
+      base00:  "#657b83",
+      base0:   "#839496",
+      violet:  "#6c71c4",
+      base1:   "#93a1a1",
+      base3:   "#fdf6e3",
+    },
+    light: {
+    },
+  }.freeze
+
   def initialize(mode = "dark")
-    @mode = mode
+    @mode = (mode || "dark").to_sym
+    @palette = OpenStruct.new(SOLARIZED_PALETTE[@mode])
   end
 
   def call
@@ -54,40 +81,55 @@ class BuildGitkSolarized
 
   private
 
+  attr_reader :mode, :palette
+
   def gitk_config
     {
-      uicolor: nil,
-      uifgcolor: nil,
-      uifgdisabledcolor: nil,
-      bgcolor: nil,
-      fgcolor: nil,
-      colors: nil,
-      diffcolors: nil,
-      mergecolors: nil,
-      markbgcolor: nil,
-      selectbgcolor: nil,
-      foundbgcolor: nil,
-      currentsearchhitbgcolor: nil,
-      headbgcolor: nil,
-      headfgcolor: "black",
-      headoutlinecolor: nil,
-      remotebgcolor: nil,
-      tagbgcolor: nil,
-      tagfgcolor: "black",
-      tagoutlinecolor: nil,
-      reflinecolor: nil,
-      filesepbgcolor: nil,
-      filesepfgcolor: nil,
-      linehoverbgcolor: nil,
-      linehoverfgcolor: "black",
-      linehoveroutlinecolor: nil,
-      mainheadcirclecolor: nil,
-      workingfilescirclecolor: nil,
-      indexcirclecolor: nil,
-      circlecolors: nil,
-      linkfgcolor: nil,
-      circleoutlinecolor: nil,
-      diffbgcolors: nil,
+      colors: format(
+        "{%s %s %s %s %s %s %s}",
+        palette.green, palette.red, palette.blue, palette.magenta,
+        palette.base1, palette.orange, palette.orange
+      ),
+      uicolor: palette.base0,
+      uifgcolor: palette.base1,
+      uifgdisabledcolor: palette.base03,
+      bgcolor: palette.base03,
+      fgcolor: palette.base1,
+      selectbgcolor: palette.base02,
+      diffcolors: format("{%s %s %s}", palette.red, palette.green, palette.cyan),
+      diffbgcolors: format("{%s %s}", palette.base02, palette.base02),
+      mergecolors: format(
+        "{%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s}",
+        palette.red, palette.blue, palette.green, palette.blue,
+        palette.orange, palette.cyan, palette.magenta, palette.yellow,
+        palette.cyan, palette.magenta, palette.cyan, palette.orange,
+        palette.cyan, palette.green, palette.orange, palette.magenta
+      ),
+      markbgcolor: palette.base03,
+      headbgcolor: palette.green,
+      headfgcolor: palette.base2,
+      headoutlinecolor: palette.base1,
+      remotebgcolor: palette.orange,
+      tagbgcolor: palette.yellow,
+      tagfgcolor: palette.base2,
+      tagoutlinecolor: palette.base1,
+      reflinecolor: palette.base1,
+      filesepbgcolor: palette.base01,
+      filesepfgcolor: palette.base2,
+      linehoverbgcolor: palette.yellow,
+      linehoverfgcolor: palette.base2,
+      linehoveroutlinecolor: palette.base1,
+      mainheadcirclecolor: palette.yellow,
+      workingfilescirclecolor: palette.red,
+      indexcirclecolor: palette.green,
+      circlecolors: format(
+        "{%s %s %s %s %s}",
+        palette.base3, palette.blue, palette.base02, palette.blue, palette.blue
+      ),
+      linkfgcolor: palette.blue,
+      circleoutlinecolor: palette.base0,
+      foundbgcolor: palette.yellow,
+      currentsearchhitbgcolor: palette.orange,
     }
   end
 end
