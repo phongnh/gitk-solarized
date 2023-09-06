@@ -5,7 +5,7 @@ A dark and light theme for [gitk](https://git-scm.com/docs/gitk).
 
 ![Solarized Dark](./gitk-solarized-dark.png)
 
-![Solarized Light](./gitk-solarized-dark.png)
+![Solarized Light](./gitk-solarized-light.png)
 
 Install
 =======
