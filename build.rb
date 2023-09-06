@@ -41,6 +41,17 @@ class BuildGitkSolarized
   GITK_CONFIG
 
   #
+  # Terminal Colors
+  #
+  # Black           Dark Gray
+  # Blue            Light Blue
+  # Green           Light Green
+  # Cyan            Light Cyan
+  # Red             Light Red
+  # Purple          Light Purple
+  # Brown           Yellow
+  # Light Gray      White
+  #
   # Dark Colors:  base02 red    green  yellow blue   magenta cyan   base2
   #               base03 orange base01 base00 base0  violet  base1  base3
   #
