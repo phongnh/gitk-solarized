@@ -40,6 +40,13 @@ class BuildGitkSolarized
     set currentsearchhitbgcolor <%= currentsearchhitbgcolor %>
   GITK_CONFIG
 
+  #
+  # Dark Colors:  base02 red    green  yellow blue   magenta cyan   base2
+  #               base03 orange base01 base00 base0  violet  base1  base3
+  #
+  # Light Colors: base2  red    green  yellow blue   magenta cyan   base02
+  #               base3  orange base1  base0  base00 violet  base01 base03
+  #
   SOLARIZED_PALETTE = {
     dark: {
       base03:  "#002b36",
