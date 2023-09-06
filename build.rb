@@ -74,7 +74,7 @@ class BuildGitkSolarized
       grey:     "#eee8d5",
       base3:    "#fdf6e3",
       white:    "#fdf6e3",
-      yellow:   "#b58900",
+      yellow:   "#ffff00",
       brown:    "#b58900",
       orange:   "#cb4b16",
       red:      "#dc322f",
@@ -101,7 +101,7 @@ class BuildGitkSolarized
       base3:    "#002b36",
       darkgray: "#002b36",
       darkgrey: "#002b36",
-      yellow:   "#b58900",
+      yellow:   "#ffff00",
       brown:    "#b58900",
       orange:   "#cb4b16",
       red:      "#dc322f",
@@ -156,10 +156,10 @@ class BuildGitkSolarized
         palette.blue, palette.green, palette.orange, palette.magenta
       ),
       markbgcolor: palette.background,
-      headbgcolor: palette.green,
+      headbgcolor: palette.head,
       headfgcolor: palette.black,
       headoutlinecolor: palette.background,
-      remotebgcolor: palette.orange,
+      remotebgcolor: palette.remote,
       tagbgcolor: palette.yellow,
       tagfgcolor: palette.black,
       tagoutlinecolor: palette.background,
@@ -189,6 +189,8 @@ class BuildGitkSolarized
       palette.foreground = palette.base0
       palette.selection  = palette.base02
       palette.search     = "#ffac1c"
+      palette.remote     = "#ffac1c"
+      palette.head       = "#719e07"
     end
   end
 end
