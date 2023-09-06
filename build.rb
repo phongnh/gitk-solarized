@@ -138,59 +138,49 @@ class BuildGitkSolarized
       colors: format(
         "{%s %s %s %s %s %s %s}",
         palette.green, palette.red, palette.blue, palette.magenta,
-        palette.base1, palette.orange, palette.orange
+        palette.base03, palette.brown, palette.orange
       ),
-      uicolor: palette.base0,
+      uicolor: palette.base02,
       uifgcolor: palette.base1,
-      uifgdisabledcolor: palette.base03,
-      bgcolor: palette.base03,
-      fgcolor: palette.base1,
-      selectbgcolor: palette.base02,
+      uifgdisabledcolor: palette.base3,
+      bgcolor: palette.background,
+      fgcolor: palette.foreground,
+      selectbgcolor: palette.selection,
       diffcolors: format("{%s %s %s}", palette.red, palette.green, palette.cyan),
-      diffbgcolors: format("{%s %s}", palette.base02, palette.base02),
+      diffbgcolors: format("{%s %s}", palette.selection, palette.selection),
       mergecolors: format(
         "{%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s}",
-        palette.red, palette.blue, palette.green, palette.blue,
-        palette.orange, palette.cyan, palette.magenta, palette.yellow,
-        palette.cyan, palette.magenta, palette.cyan, palette.orange,
-        palette.cyan, palette.green, palette.orange, palette.magenta
+        palette.red, palette.blue, palette.green, palette.purple,
+        palette.brown, palette.cyan, palette.magenta, palette.yellow,
+        palette.green, palette.magenta, palette.cyan, palette.orange,
+        palette.blue, palette.green, palette.orange, palette.magenta
       ),
-      markbgcolor: palette.base03,
+      markbgcolor: palette.background,
       headbgcolor: palette.green,
-      headfgcolor: palette.base2,
-      headoutlinecolor: palette.base1,
+      headfgcolor: palette.black,
+      headoutlinecolor: palette.background,
       remotebgcolor: palette.orange,
       tagbgcolor: palette.yellow,
-      tagfgcolor: palette.base2,
-      tagoutlinecolor: palette.base1,
-      reflinecolor: palette.base1,
+      tagfgcolor: palette.black,
+      tagoutlinecolor: palette.background,
+      reflinecolor: palette.black,
       filesepbgcolor: palette.base01,
       filesepfgcolor: palette.base2,
       linehoverbgcolor: palette.yellow,
-      linehoverfgcolor: palette.base2,
-      linehoveroutlinecolor: palette.base1,
+      linehoverfgcolor: palette.black,
+      linehoveroutlinecolor: palette.background,
       mainheadcirclecolor: palette.yellow,
       workingfilescirclecolor: palette.red,
       indexcirclecolor: palette.green,
       circlecolors: format(
         "{%s %s %s %s %s}",
-        palette.base3, palette.blue, palette.base02, palette.blue, palette.blue
+        palette.background, palette.blue, palette.base2, palette.blue, palette.blue
       ),
       linkfgcolor: palette.blue,
-      circleoutlinecolor: palette.base0,
-      foundbgcolor: palette.yellow,
-      currentsearchhitbgcolor: palette.orange,
-    }.tap do |config|
-      if mode == :light
-        config.update({
-          uicolor: palette.base02,
-          filesepbgcolor: palette.base01,
-        })
-      else
-        config.update({
-        })
-      end
-    end
+      circleoutlinecolor: palette.black,
+      foundbgcolor: palette.search,
+      currentsearchhitbgcolor: palette.base00,
+    }
   end
 
   def build_palette
@@ -198,6 +188,7 @@ class BuildGitkSolarized
       palette.background = palette.base03
       palette.foreground = palette.base0
       palette.selection  = palette.base02
+      palette.search     = "#ffac1c"
     end
   end
 end
