@@ -84,7 +84,7 @@ class BuildGitkSolarized
       blue:     "#268bd2",
       cyan:     "#2aa198",
       aqua:     "#2aa198",
-      green:    "#719e07", # Original: #859900
+      green:    "#859900",
     },
     light: {
       base03:   "#fdf6e3",
@@ -111,7 +111,7 @@ class BuildGitkSolarized
       blue:     "#268bd2",
       cyan:     "#2aa198",
       aqua:     "#2aa198",
-      green:    "#719e07", # Original: #859900
+      green:    "#859900",
     },
   }.freeze
 
