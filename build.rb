@@ -5,38 +5,38 @@ require "erb"
 class BuildGitkSolarized
   TEMPLATE = <<~GITK_CONFIG
     set want_ttk 0
-    set uicolor <%= uicolor %>
-    set uifgcolor <%= uifgcolor %>
-    set uifgdisabledcolor <%= uifgdisabledcolor %>
-    set bgcolor <%= bgcolor %>
-    set fgcolor <%= fgcolor %>
-    set colors <%= colors %>
-    set diffcolors <%= diffcolors %>
-    set mergecolors <%= mergecolors %>
-    set markbgcolor <%= markbgcolor %>
-    set selectbgcolor <%= selectbgcolor %>
-    set foundbgcolor <%= foundbgcolor %>
+    set uicolor                 <%= uicolor %>
+    set uifgcolor               <%= uifgcolor %>
+    set uifgdisabledcolor       <%= uifgdisabledcolor %>
+    set bgcolor                 <%= bgcolor %>
+    set fgcolor                 <%= fgcolor %>
+    set colors                  <%= colors %>
+    set diffcolors              <%= diffcolors %>
+    set mergecolors             <%= mergecolors %>
+    set markbgcolor             <%= markbgcolor %>
+    set selectbgcolor           <%= selectbgcolor %>
+    set foundbgcolor            <%= foundbgcolor %>
     set currentsearchhitbgcolor <%= currentsearchhitbgcolor %>
-    set headbgcolor <%= headbgcolor %>
-    set headfgcolor black
-    set headoutlinecolor <%= headoutlinecolor %>
-    set remotebgcolor <%= remotebgcolor %>
-    set tagbgcolor <%= tagbgcolor %>
-    set tagfgcolor black
-    set tagoutlinecolor <%= tagoutlinecolor %>
-    set reflinecolor <%= reflinecolor %>
-    set filesepbgcolor <%= filesepbgcolor %>
-    set filesepfgcolor <%= filesepfgcolor %>
-    set linehoverbgcolor <%= linehoverbgcolor %>
-    set linehoverfgcolor black
-    set linehoveroutlinecolor <%= linehoveroutlinecolor %>
-    set mainheadcirclecolor <%= mainheadcirclecolor %>
+    set headbgcolor             <%= headbgcolor %>
+    set headfgcolor             <%= headfgcolor %>
+    set headoutlinecolor        <%= headoutlinecolor %>
+    set remotebgcolor           <%= remotebgcolor %>
+    set tagbgcolor              <%= tagbgcolor %>
+    set tagfgcolor              <%= tagfgcolor %>
+    set tagoutlinecolor         <%= tagoutlinecolor %>
+    set reflinecolor            <%= reflinecolor %>
+    set filesepbgcolor          <%= filesepbgcolor %>
+    set filesepfgcolor          <%= filesepfgcolor %>
+    set linehoverbgcolor        <%= linehoverbgcolor %>
+    set linehoverfgcolor        <%= linehoverfgcolor %>
+    set linehoveroutlinecolor   <%= linehoveroutlinecolor %>
+    set mainheadcirclecolor     <%= mainheadcirclecolor %>
     set workingfilescirclecolor <%= workingfilescirclecolor %>
-    set indexcirclecolor <%= indexcirclecolor %>
-    set circlecolors <%= circlecolors %>
-    set linkfgcolor <%= markbgcolor %>
-    set circleoutlinecolor <%= markbgcolor %>
-    set diffbgcolors <%= diffbgcolors %>
+    set indexcirclecolor        <%= indexcirclecolor %>
+    set circlecolors            <%= circlecolors %>
+    set linkfgcolor             <%= linkfgcolor %>
+    set circleoutlinecolor      <%= circleoutlinecolor %>
+    set diffbgcolors            <%= diffbgcolors %>
   GITK_CONFIG
 
   def initialize(mode = "dark")
