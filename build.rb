@@ -117,7 +117,7 @@ class BuildGitkSolarized
 
   def initialize(mode = "dark")
     @mode = (mode || "dark").to_sym
-    @palette = OpenStruct.new(SOLARIZED_PALETTE[@mode])
+    @palette = build_palette
   end
 
   def call
@@ -190,6 +190,14 @@ class BuildGitkSolarized
         config.update({
         })
       end
+    end
+  end
+
+  def build_palette
+    OpenStruct.new(SOLARIZED_PALETTE[@mode]).tap do |palette|
+      palette.background = palette.base03
+      palette.foreground = palette.base0
+      palette.selection  = palette.base02
     end
   end
 end
