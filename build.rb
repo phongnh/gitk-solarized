@@ -5,18 +5,17 @@ require "erb"
 class BuildGitkSolarized
   TEMPLATE = <<~GITK_CONFIG
     set want_ttk 0
+    set colors                  <%= colors %>
     set uicolor                 <%= uicolor %>
     set uifgcolor               <%= uifgcolor %>
     set uifgdisabledcolor       <%= uifgdisabledcolor %>
     set bgcolor                 <%= bgcolor %>
     set fgcolor                 <%= fgcolor %>
-    set colors                  <%= colors %>
+    set selectbgcolor           <%= selectbgcolor %>
     set diffcolors              <%= diffcolors %>
+    set diffbgcolors            <%= diffbgcolors %>
     set mergecolors             <%= mergecolors %>
     set markbgcolor             <%= markbgcolor %>
-    set selectbgcolor           <%= selectbgcolor %>
-    set foundbgcolor            <%= foundbgcolor %>
-    set currentsearchhitbgcolor <%= currentsearchhitbgcolor %>
     set headbgcolor             <%= headbgcolor %>
     set headfgcolor             <%= headfgcolor %>
     set headoutlinecolor        <%= headoutlinecolor %>
@@ -36,7 +35,8 @@ class BuildGitkSolarized
     set circlecolors            <%= circlecolors %>
     set linkfgcolor             <%= linkfgcolor %>
     set circleoutlinecolor      <%= circleoutlinecolor %>
-    set diffbgcolors            <%= diffbgcolors %>
+    set foundbgcolor            <%= foundbgcolor %>
+    set currentsearchhitbgcolor <%= currentsearchhitbgcolor %>
   GITK_CONFIG
 
   def initialize(mode = "dark")
