@@ -138,7 +138,7 @@ class BuildGitkSolarized
       colors: format(
         "{%s %s %s %s %s %s %s}",
         palette.green, palette.red, palette.blue, palette.magenta,
-        palette.base03, palette.brown, palette.orange
+        palette.base01, palette.brown, palette.orange
       ),
       uicolor: palette.base02,
       uifgcolor: palette.base1,
