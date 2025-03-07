@@ -137,8 +137,10 @@ class BuildGitkSolarized
     {
       colors: format(
         "{%s %s %s %s %s %s %s}",
-        palette.green, palette.red, palette.blue, palette.magenta,
-        palette.base01, palette.brown, palette.orange
+        *[
+          palette.green, palette.red, palette.blue, palette.magenta,
+          palette.base01, palette.brown, palette.orange,
+        ].map(&:inspect)
       ),
       uicolor: palette.base02,
       uifgcolor: palette.base1,
@@ -150,10 +152,12 @@ class BuildGitkSolarized
       diffbgcolors: format("{%s %s}", palette.selection, palette.selection),
       mergecolors: format(
         "{%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s}",
-        palette.red, palette.blue, palette.green, palette.purple,
-        palette.brown, palette.cyan, palette.magenta, palette.yellow,
-        palette.green, palette.magenta, palette.cyan, palette.orange,
-        palette.blue, palette.green, palette.orange, palette.magenta
+        *[
+          palette.red, palette.blue, palette.green, palette.purple,
+          palette.brown, palette.cyan, palette.magenta, palette.yellow,
+          palette.green, palette.magenta, palette.cyan, palette.orange,
+          palette.blue, palette.green, palette.orange, palette.magenta,
+        ].map(&:inspect)
       ),
       markbgcolor: palette.background,
       headbgcolor: palette.head,
@@ -174,7 +178,7 @@ class BuildGitkSolarized
       indexcirclecolor: palette.green,
       circlecolors: format(
         "{%s %s %s %s %s}",
-        palette.background, palette.blue, palette.base2, palette.blue, palette.blue
+        *[palette.background, palette.blue, palette.base2, palette.blue, palette.blue].map(&:inspect)
       ),
       linkfgcolor: palette.blue,
       circleoutlinecolor: palette.black,
