@@ -148,8 +148,8 @@ class BuildGitkSolarized
       bgcolor: palette.background,
       fgcolor: palette.foreground,
       selectbgcolor: palette.selection,
-      diffcolors: format("{%s %s %s}", palette.red, palette.green, palette.cyan),
-      diffbgcolors: format("{%s %s}", palette.selection, palette.selection),
+      diffcolors: format("{%s %s %s}", *[palette.red, palette.green, palette.cyan].map(&:inspect)]),
+      diffbgcolors: format("{%s %s}", *[palette.selection, palette.selection].map(&:inspect)]),
       mergecolors: format(
         "{%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s}",
         *[
