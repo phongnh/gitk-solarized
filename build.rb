@@ -135,12 +135,9 @@ class BuildGitkSolarized
 
   def gitk_config
     {
-      colors: format(
-        "{%s %s %s %s %s %s %s}",
-        *[
-          palette.green, palette.red, palette.blue, palette.magenta,
-          palette.base01, palette.brown, palette.orange,
-        ].map(&:inspect)
+      colors: colors(
+        palette.green, palette.red, palette.blue, palette.magenta,
+        palette.base01, palette.brown, palette.orange
       ),
       uicolor: palette.base02,
       uifgcolor: palette.base1,
@@ -148,16 +145,13 @@ class BuildGitkSolarized
       bgcolor: palette.background,
       fgcolor: palette.foreground,
       selectbgcolor: palette.selection,
-      diffcolors: format("{%s %s %s}", *[palette.red, palette.green, palette.cyan].map(&:inspect)]),
-      diffbgcolors: format("{%s %s}", *[palette.selection, palette.selection].map(&:inspect)]),
-      mergecolors: format(
-        "{%s %s %s %s %s %s %s %s %s %s %s %s %s %s %s %s}",
-        *[
-          palette.red, palette.blue, palette.green, palette.purple,
-          palette.brown, palette.cyan, palette.magenta, palette.yellow,
-          palette.green, palette.magenta, palette.cyan, palette.orange,
-          palette.blue, palette.green, palette.orange, palette.magenta,
-        ].map(&:inspect)
+      diffcolors: colors(palette.red, palette.green, palette.cyan),
+      diffbgcolors: colors(palette.selection, palette.selection),
+      mergecolors: colors(
+        palette.red, palette.blue, palette.green, palette.purple,
+        palette.brown, palette.cyan, palette.magenta, palette.yellow,
+        palette.green, palette.magenta, palette.cyan, palette.orange,
+        palette.blue, palette.green, palette.orange, palette.magenta
       ),
       markbgcolor: palette.background,
       headbgcolor: palette.head,
@@ -176,15 +170,17 @@ class BuildGitkSolarized
       mainheadcirclecolor: palette.yellow,
       workingfilescirclecolor: palette.red,
       indexcirclecolor: palette.green,
-      circlecolors: format(
-        "{%s %s %s %s %s}",
-        *[palette.background, palette.blue, palette.base2, palette.blue, palette.blue].map(&:inspect)
-      ),
+      circlecolors: colors(palette.background, palette.blue, palette.base2, palette.blue, palette.blue),
       linkfgcolor: palette.blue,
       circleoutlinecolor: palette.black,
       foundbgcolor: palette.search,
       currentsearchhitbgcolor: palette.base00,
     }
+  end
+
+  def colors(*args)
+    fmt = (["%s"] * args.size).join(" ")
+    format("{#{fmt}}", *args.map(&:inspect))
   end
 
   def build_palette
